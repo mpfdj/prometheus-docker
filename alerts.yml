@@ -1,0 +1,62 @@
+groups:
+  - name: TibcoBwRuleGroup
+    rules:
+      - alert: TibcoAdministratorIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-administrator.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO Administrator process is not running (instance {{ $labels.instance }})
+          description: "TIBCO Administrator process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: TibcoEmsIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-ems.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO EMS process is not running (instance {{ $labels.instance }})
+          description: "TIBCO EMS process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: TibcoHawkagentMonitoringIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-hawkagent-monitoring.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO Hawkagent Monitoring process is not running (instance {{ $labels.instance }})
+          description: "TIBCO Hawkagent Monitoring process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: TibcoHawkagentIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-hawkagent.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO Hawkagent process is not running (instance {{ $labels.instance }})
+          description: "TIBCO Hawkagent process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: TibcoHmaIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-hma.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO Hawk Micro Agent process is not running (instance {{ $labels.instance }})
+          description: "TIBCO Hawk Micro Agent process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
+
+      - alert: TibcoRvdMonitoringIsNotRunnning
+        expr: node_systemd_unit_state{instance=~"clrv0000xxxxxx.*", name="tibco-rvd-monitoring.service", state="active"} != 1
+        for: 0m
+        labels:
+          severity: warning
+          applicationId: TIBCOBW_srv0000xxxxxx
+        annotations:
+          summary: TIBCO RendezVous Monitoring process is not running (instance {{ $labels.instance }})
+          description: "TIBCO RendezVous Monitoring process is not running\n  VALUE = {{ $value }}\n  LABELS = {{ $labels }}"
