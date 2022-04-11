@@ -1,0 +1,28 @@
+process_names:
+  - name: tibco-administrator-process
+    cmdline:
+      - /opt/tibco/administrator/domain/.*/bin/tibcoadmin_.*
+
+  - name: tibco-ems-process
+    cmdline:
+      - /opt/tibco/ems/.*/bin/tibemsd.*
+
+  - name: tibco-hma-process
+    cmdline:
+      - /opt/tibco/hawk/.*/bin/tibhawkhma
+
+  - name: tibco-rvd-monitoring-process
+    cmdline:
+      - /opt/tibco/tibrv/.*/bin/rvd.bin -listen tcp:30450.*
+
+  - name: tibco-rvd-hma-process
+    cmdline:
+      - /opt/tibco/tibrv/.*/bin/rvd.bin -listen tcp:7474.*
+
+  - name: tibco-hawkagent-monitoring-process
+    cmdline:
+      - /opt/tibco/tra/domain/.*/hawkagent_.*hawkagent_monitoring_srv.*.tra.*
+
+  - name: tibco-hawkagent-process
+    cmdline:
+      - /opt/tibco/tra/domain/.*/hawkagent_.*hawkagent_srv.*.tra.*

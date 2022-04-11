@@ -37,14 +37,21 @@ scrape_configs:
     static_configs:
       - targets: ['clrv0000xxxxxx:8080']
         labels:
-          group: 'test-node'
+          group: 'test-node-exporter'
+
+  - job_name: 'process'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['clrv0000xxxxxx:8081']
+        labels:
+          group: 'test-process-exporter'
 
   - job_name: 'grok'
     scrape_interval: 5s
     static_configs:
       - targets: ['host.docker.internal:9144']
         labels:
-          group: 'test-grok'
+          group: 'test-grok-exporter'
 
 
 

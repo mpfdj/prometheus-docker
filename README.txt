@@ -7,7 +7,7 @@ https://awesome-prometheus-alerts.grep.to/rules
 # Docker
 docker pull prom/prometheus
 docker pull grafana/grafana-oss
-docker run -p 9090:9090 -v "C:/Users/TO11RC/OneDrive - ING/miel/workspace/prometheus/prometheus-docker-working-copy:/etc/prometheus" prom/prometheus
+docker run -p 9090:9090 -v "C:\Users\TO11RC\OneDrive - ING\miel\workspace\prometheus\prometheus-docker-working-copy:/etc/prometheus" prom/prometheus
 docker run -p 3000:3000 grafana/grafana-oss
 
 # Running node exporter
@@ -35,6 +35,8 @@ tls_server_config:
 # Run exporter with TLS (For testing purposes using a local Docker image)
 nohup ./node_exporter --collector.systemd --web.listen-address clrv0000yyyyyy:8080 --web.config=/opt/prometheus/web-config.yml &
 nohup ./node_exporter --collector.systemd --web.listen-address clrv0000xxxxxx:8080 &
+nohup ./process-exporter -config.path process-exporter.yml --web.listen-address clrv0000xxxxxx:8081 &
+
 
 # Custom exporter using Phyton
 https://ikod.medium.com/custom-exporter-with-prometheus-b1c23cb24e7a
